@@ -5,12 +5,12 @@ import { GetDepartments } from "../services/ApiService";
 const useDepartment = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [department, setDepartment] = useState();
+  const [department, setDepartment] = useState([]);
 
   useEffect(() => {
     GetDepartments()
-      .then((department) => {
-        setDepartment(department);
+      .then((response) => {
+        setDepartment(response);
       })
       .catch(() => {
         setHasError(true);

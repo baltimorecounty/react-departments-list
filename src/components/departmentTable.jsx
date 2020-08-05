@@ -12,27 +12,13 @@ import DepartmentSidebar from "./departmentSideBar";
 import useDepartment from "../hooks/useDepartment";
 
 const DepartmentTable = (props) => {
-  const [{ department, hasError, isLoading }] = useDepartment();
-
-  console.log(department);
+  const [{ department = [], hasError, isLoading }] = useDepartment();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
-  //   const {
-  //     departmentName,
-  //     phone,
-  //     address,
-  //     city,
-  //     zip,
-  //     email,
-  //     contactTitle,
-  //     contactName,
-  //     directionsUrl,
-  //     description,
-  //     url,
-  //   } = props;
+  const { records = [] } = department;
 
   if (hasError) {
     return (
@@ -42,7 +28,7 @@ const DepartmentTable = (props) => {
       </p>
     );
   }
-  //style="position: absolute !important;height: 1px; width: 1px;overflow: hidden;clip: rect(1px 1px 1px 1px); /* IE6, IE7 */clip: rect(1px, 1px, 1px, 1px);white-space: nowrap; /* added line */
+
   const styles = {
     position: "absolute",
     height: "1px",
@@ -62,14 +48,14 @@ const DepartmentTable = (props) => {
               <div id="dg_main-content">
                 <div class="dg_form-field">
                   <label
-                    class="dg_label"
-                    for="service-list-filter-input"
+                    className="dg_label"
+                    htmlFor="service-list-filter-input"
                     style={styles}
                   >
                     Apply
                   </label>
                   <input
-                    class="department-list-filter mb--default"
+                    className="department-list-filter mb--default"
                     id="department-list-filter-input"
                     placeholder="Beging typing to filter departments by name..."
                     type="search"
@@ -83,7 +69,23 @@ const DepartmentTable = (props) => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    <DepartmentCard />
+                    {records.map((item) => {
+                      return (
+                        <DepartmentCard
+                          departmentName={item.departmentName}
+                          phone={item.phone}
+                          address={item.address}
+                          city={item.city}
+                          zip={item.zip}
+                          email={item.email}
+                          contactTitle={item.contactTitle}
+                          contactName={item.contactName}
+                          directionsUrl={item.directionsUrl}
+                          description={item.description}
+                          url={item.url}
+                        />
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </div>
