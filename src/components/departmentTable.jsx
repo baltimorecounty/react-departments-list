@@ -37,6 +37,7 @@ const DepartmentTable = (props) => {
     clip: "rect(1px 1px 1px 1px)",
     whiteSpace: "nowrap",
   };
+
   return (
     <div className="dg_internal-template">
       <div className="container">
@@ -46,51 +47,63 @@ const DepartmentTable = (props) => {
               <p>{`Loading Departments...`}</p>
             ) : (
               <div id="dg_main-content">
-                <div class="dg_form-field">
-                  <label
-                    className="dg_label"
-                    htmlFor="service-list-filter-input"
-                    style={styles}
-                  >
-                    Apply
-                  </label>
-                  <input
-                    className="department-list-filter mb--default"
-                    id="department-list-filter-input"
-                    placeholder="Beging typing to filter departments by name..."
-                    type="search"
-                  ></input>
+                <div
+                  className="filter-table-container"
+                  id="department-filter-container"
+                >
+                  <div className="dg_form-field">
+                    <label
+                      className="dg_label"
+                      htmlFor="service-list-filter-input"
+                      style={styles}
+                    >
+                      Apply
+                    </label>
+                    <input
+                      className="department-list-filter mb--default"
+                      id="department-list-filter-input"
+                      placeholder="Beging typing to filter departments by name..."
+                      type="search"
+                    ></input>
+                  </div>
+                  <div className="table-responsive">
+                    <p id="filter-list-no-results" style={{ display: "none" }}>
+                      No departments match your filter criteria.
+                    </p>
+                    <Table className="table department-list">
+                      <TableHead>
+                        <TableRow>
+                          <TableHeadCell>Department Name</TableHeadCell>
+                          <TableHeadCell>Contact Information</TableHeadCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {records.map((item, index) => {
+                          return (
+                            <DepartmentCard
+                              key={index}
+                              departmentName={item.departmentName}
+                              phone={item.phone}
+                              address={item.address}
+                              city={item.city}
+                              zip={item.zip}
+                              email={item.email}
+                              contactTitle={item.contactTitle}
+                              contactName={item.contactName}
+                              directionsUrl={item.directionsUrl}
+                              description={item.description}
+                              url={item.url}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  </div>
                 </div>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableHeadCell>Department Name</TableHeadCell>
-                      <TableHeadCell>Contact Information</TableHeadCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {records.map((item) => {
-                      return (
-                        <DepartmentCard
-                          departmentName={item.departmentName}
-                          phone={item.phone}
-                          address={item.address}
-                          city={item.city}
-                          zip={item.zip}
-                          email={item.email}
-                          contactTitle={item.contactTitle}
-                          contactName={item.contactName}
-                          directionsUrl={item.directionsUrl}
-                          description={item.description}
-                          url={item.url}
-                        />
-                      );
-                    })}
-                  </TableBody>
-                </Table>
               </div>
             )}
           </div>
+
           <div className="col-md-4 col-sm-12">
             <DepartmentSidebar />
           </div>
