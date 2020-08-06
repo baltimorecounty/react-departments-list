@@ -8,7 +8,7 @@ import {
 } from "@baltimorecounty/dotgov-components";
 
 import DepartmentCard from "./departmentCard";
-import DepartmentSidebar from "./departmentSideBar";
+//import DepartmentSidebar from "./departmentSideBar";
 import useDepartment from "../hooks/useDepartment";
 
 const DepartmentTable = (props) => {
@@ -104,9 +104,9 @@ const DepartmentTable = (props) => {
             )}
           </div>
 
-          <div className="col-md-4 col-sm-12">
+          {/* <div className="col-md-4 col-sm-12">
             <DepartmentSidebar />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
