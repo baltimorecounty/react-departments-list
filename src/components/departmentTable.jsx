@@ -1,13 +1,6 @@
 import React, { useEffect } from "react";
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-} from "@baltimorecounty/dotgov-components";
-import DepartmentCard from "./departmentCard";
-import DepartmentSidebar from "./departmentSideBar";
+import DepartmentCard from "./DepartmentCard";
+import DepartmentSidebar from "./DepartmentSideBar";
 import useDepartment from "../hooks/useDepartment";
 
 const DepartmentTable = (props) => {
@@ -65,38 +58,29 @@ const DepartmentTable = (props) => {
                       type="search"
                     ></input>
                   </div>
-                  <div className="table-responsive">
+                  <div className="dg_department_group">
                     <p id="filter-list-no-results" style={{ display: "none" }}>
                       No departments match your filter criteria.
                     </p>
-                    <Table className="table department-list">
-                      <TableHead>
-                        <TableRow>
-                          <TableHeadCell>Department Name</TableHeadCell>
-                          <TableHeadCell>Contact Information</TableHeadCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {records.map((item, index) => {
-                          return (
-                            <DepartmentCard
-                              key={index}
-                              departmentName={item.departmentName}
-                              phone={item.phone}
-                              address={item.address}
-                              city={item.city}
-                              zip={item.zip}
-                              email={item.email}
-                              contactTitle={item.contactTitle}
-                              contactName={item.contactName}
-                              directionsUrl={item.directionsUrl}
-                              description={item.description}
-                              url={item.url}
-                            />
-                          );
-                        })}
-                      </TableBody>
-                    </Table>
+
+                    {records.map((item, index) => {
+                      return (
+                        <DepartmentCard
+                          key={index}
+                          departmentName={item.departmentName}
+                          phone={item.phone}
+                          address={item.address}
+                          city={item.city}
+                          zip={item.zip}
+                          email={item.email}
+                          contactTitle={item.contactTitle}
+                          contactName={item.contactName}
+                          directionsUrl={item.directionsUrl}
+                          description={item.description}
+                          url={item.url}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
               </div>
