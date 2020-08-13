@@ -76,16 +76,10 @@
         }
 
         var hasNoVisibleRecords =
-          $(".filter-table-container").find("table > tbody > tr:visible")
-            .length === 0;
+          $(".dg_department_group").find(".dg_card:visible").length === 0;
 
         // Show no results message
         $("#filter-list-no-results").toggle(hasNoVisibleRecords);
-
-        // Hide the table when there are not results
-        $(".filter-table-container")
-          .find("table thead")
-          .toggle(!hasNoVisibleRecords);
       };
 
       $(document).on("input", ".department-list-filter", filterDepartments);
