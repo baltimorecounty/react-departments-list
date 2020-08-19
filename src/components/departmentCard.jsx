@@ -19,23 +19,36 @@ const DepartmentCard = (props) => {
 
   return (
     <Card>
+      <h2 className="dg_department-name text-left">
+        <a href={url}>{departmentName}</a>
+      </h2>
       <CardContent className="text-left">
-        <h2 className="dg_department-name">
-          <a href={url}>{departmentName}</a>
-        </h2>
         <div>
           <p>{description}</p>
         </div>
-
+        {contactTitle ? (
+          <div className="dg_department_title">
+            <p>
+              <strong>{contactTitle}:</strong>&nbsp;{contactName}
+            </p>
+          </div>
+        ) : null}
         <div className="mb--large">
           <Address address={address} city={city} zip={zip} />
-          <p>
-            <strong>{contactTitle}:</strong>&nbsp;{contactName}
-            <br></br> <strong>Contact: </strong>
-            {phone}
-            <br></br>
-            <a href={`mailto:${email}`}>{email}</a>
-          </p>
+          <div className="dg_department_contact">
+            <strong>Contact: </strong>
+            <a style={{ display: "inline" }} href={`tel:${phone}`}>
+              {phone}
+            </a>
+          </div>
+          {email ? (
+            <div className="dg_department_email">
+              <strong>Email: </strong>
+              <a style={{ display: "inline" }} href={`mailto:${email}`}>
+                {email}
+              </a>
+            </div>
+          ) : null}
         </div>
       </CardContent>
     </Card>

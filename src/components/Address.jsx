@@ -4,8 +4,8 @@ const Address = ({ address: street, city, zip }) => {
   const newAddress = `${street} ${city}, Maryland, ${zip}`;
   const cityStateZip = `${city}, Maryland, ${zip}`;
 
-  return (
-    <p className="service-description">
+  return street ? (
+    <div className="dg_department_address">
       <strong>Address: </strong>
       <a
         style={{ display: "inline" }}
@@ -13,8 +13,8 @@ const Address = ({ address: street, city, zip }) => {
       >
         {` ${newAddress}`}
       </a>
-    </p>
-  );
+    </div>
+  ) : null;
 };
 
 export default Address;
