@@ -1,7 +1,7 @@
 import React from "react";
 
 const Address = ({ address: street, city, zip }) => {
-  const newAddress = `${street} ${city}, Maryland, ${zip}`;
+  const newAddress = `${street}, ${city}, Maryland,  ${zip}`;
   const cityStateZip = `${city}, Maryland, ${zip}`;
 
   return street ? (

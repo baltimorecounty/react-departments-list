@@ -54,7 +54,7 @@ const DepartmentTable = (props) => {
                     <input
                       className="department-list-filter mb--default"
                       id="department-list-filter-input"
-                      placeholder="Beging typing to filter departments by name..."
+                      placeholder="Begin typing to filter departments by name..."
                       type="search"
                     ></input>
                   </div>
