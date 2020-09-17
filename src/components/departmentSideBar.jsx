@@ -22,7 +22,7 @@ const departmentSummaryItems = [
     icon: "fas fa-link",
     heading: "Website:",
     content:
-      "<p><a href='https://baltimorecountymd.gov/report-problem/'>Report a problem</a></p>",
+      "<p><a href='https://baltimorecountymd.gov/report-problem#/'>Report a problem</a></p>",
   },
   {
     id: 4,
