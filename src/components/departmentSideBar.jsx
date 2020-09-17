@@ -21,14 +21,15 @@ const departmentSummaryItems = [
     id: 3,
     icon: "fas fa-link",
     heading: "Website:",
-    content: "<p><a href='www.disney.com'>Report a problem</a></p>",
+    content:
+      "<p><a href='https://baltimorecountymd.gov/report-problem/'>Report a problem</a></p>",
   },
   {
     id: 4,
     icon: "fa-fw fas fa-download",
     heading: "Download",
     content:
-      "<p><a href='www.google.com'>Google Play</a></p><p><a href='www.apple.com'>Apple</a></p>",
+      "<p><a href='https://play.google.com/store/apps/details?id=com.citysourced.baltimorecountymd&hl=en'>Google Play</a></p><p><a href='https://itunes.apple.com/us/app/baltcogo/id1200046300'>Apple</a></p>",
   },
 ];
 
